@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+    <html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Calculator</title>
+        <link href="Calculator with Js\style.css" rel="stylesheet">
+        <script src="Calculator with JS\script.js" defer></script> </head>
+        <style>
+            *{
+                box-sizing: border-box;
+  font-family: Gotham Rounded, sans-serif;
+  font-weight: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: gray;
+  }
+
+  .calculator-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    }
+
+    .calculator-grid > button {
+      cursor: pointer;
+      font-size: 2rem;
+      border: 1px, solid #FFFFFF;
+      outline: none;
+      background-color: rbga(255, 255, 255, 0.75);
+    }
+
+      .calculator-grid > button:hover {
+        background-color: #a9a9a9;
+      }
+
+      .span-two {
+        grid-column: span 2;
+        color: red;
+        background-color: blue;
+      }
+
+      .output{
+        grid-column: 1 / -1;
+        background-color: blanchedalmond;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-around;
+        flex-direction: column;
+        padding: 10px;
+        word-wrap: break-word;
+        word-break: break-all;
+      }
+
+      .output .previous-operand{
+        color: rgba(255,255, 255, 0.75);
+        font-size: 1.5rem;
+      }
+
+      .output .current-operand{
+        color: white;
+        font-size: 2.5rem;
+      }
+
+
+         
+             </style>
+         <body>
+            <div class="calculator-grid">
+                <div class="output" id="output"> 
+                    <input class="previousOperand" id="output2">
+                    <input class="currentOperand" id="output1">
+                </div>
+                <button class="span-two" onclick="allclear()">AC</button>
+                <button onclick="deleteNumber()">DEL</button>
+                <button type="button" onclick="output1.value +='/'">÷</button>
+                <button type="button" onclick="output1.value += '1' ">1</button>
+                <button type="button" onclick="output1.value += '2' ">2</button>
+                <button type="button" onclick="output1.value += '3' ">3</button>
+                <button type="button" onclick="output1.value +='*'">*</button>
+                <button type="button" onclick="output1.value += '4' ">4</button>
+                <button type="button" onclick="output1.value += '5' ">5</button>
+                <button type="button" onclick="output1.value += '6' ">6</button>
+                <button type="button" onclick="output1.value +='+'">+</button>
+                <button type="button" onclick="output1.value += '7' ">7</button>
+                <button type="button" onclick="output1.value += '8' ">8</button>
+                <button type="button" onclick="output1.value += '9' ">9</button>
+                <button type="button" onclick="output1.value +='-'">-</button>
+                <button type="button" onclick="output1.value += '.' ">.</button>
+                <button type="button" onclick="output1.value += '0' ">0</button>
+                <button type="button" class="btn btn-primary btn-lg w-100" onclick="answer('=')">=</button>
+            </div>
+    </div>
+    <script>
+        function answer() {
+        let output1 = document.getElementById('output1');
+        let result = eval(output1.value);
+        output1.value = result;
+    }
+      
+      function allclear() {
+      document.getElementById('output1').value='';
+    }
+
+      function deleteNumber() {
+      let output = document.getElementById('output1');
+      output.value= output.value.slice(0,-1);  
+  
+      }  
+
+    </script>
+
+    </body>
+  </html>
